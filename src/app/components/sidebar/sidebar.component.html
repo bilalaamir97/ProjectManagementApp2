@@ -1,0 +1,97 @@
+<nav
+class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light "
+style="background-color:  #eff5f5 ;"
+id="sidenav-main"
+(mouseover)="onMouseEnterSidenav()"
+(mouseout)="onMouseLeaveSidenav()"
+>
+<perfect-scrollbar>
+<div class="scrollbar-inner">
+<div class="sidenav-header d-flex align-items-center">
+<a class="navbar-brand" [routerLink]="['/dashboards/dashboard']">
+<img
+src="assets/img/brand/red.png"
+class="navbar-brand-img"
+alt="..."
+/>
+</a>
+<div class="ml-auto">
+<!-- Sidenav toggler -->
+<div
+class="sidenav-toggler d-none d-xl-block"
+data-action="sidenav-unpin"
+data-target="#sidenav-main"
+(click)="minimizeSidebar()"
+>
+<div class="sidenav-toggler-inner">
+<i class="sidenav-toggler-line"></i>
+<i class="sidenav-toggler-line"></i>
+<i class="sidenav-toggler-line"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="navbar-inner">
+<div class="collapse navbar-collapse" id="sidenav-collapse-main">
+<!-- Collapse header -->
+<ul class="navbar-nav">
+
+<li class="nav-item">
+<a routerLink="/dashboards/dashboard" 
+[routerLinkActive]="['router-link-active']" class="nav-link">
+<span class="nav-link-text">Dashboard</span></a>
+</li>    
+
+<li *ngFor="let menu of getModulesData" class="nav-item">
+<!--If is a single link-->
+<!--If it have a submenu-->
+<a
+data-toggle="collapse"
+routerLinkActive="active"
+(click)="menu.module.moduleDesc.isCollapsed = !menu.module.moduleDesc.isCollapsed"
+[attr.aria-expanded]="!menu.module.moduleDesc.isCollapsed"
+[attr.aria-controls]="menu.module.moduleDesc.collapse"
+class="nav-link"
+>
+<span class="nav-link-text">{{menu.module.moduleDesc}}</span>
+</a>
+
+<!--Display the submenu items-->
+<div
+id="{{ menu.module.moduleDesc }}"
+class="collapse"
+[collapse]="menu.module.moduleDesc.isCollapsed"
+[isAnimated]="true"
+>
+<ul class="nav nav-sm flex-column">
+<li
+*ngFor="let subMenu of getSubModulesData"
+class="nav-item"
+>
+<!--If is a single link-->
+<a
+  routerLinkActive="active"
+  [routerLink]="[subMenu.subModule.subModuleLink]"
+  class="nav-link"
+  *ngIf="subMenu.subModule.moduleId === menu.module.id"
+>
+{{subMenu.subModule.subModuleDesc}}
+</a>
+<!--If it have a submenu-->
+
+<!--Display the submenu items-->
+
+</li>
+</ul>
+</div>
+</li>
+</ul>
+
+
+
+</div>
+</div>
+</div>
+</perfect-scrollbar>
+
+</nav>

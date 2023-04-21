@@ -1,0 +1,119 @@
+<div class=" header pb-6" style="background-color:#2596be;">
+
+<div class=" container-fluid">
+<div class=" header-body">
+<div class=" row align-items-center py-4">
+<div class=" col-lg-6 col-7">
+<h6 class=" h2 text-white d-inline-block mb-0">Create Sub Modules</h6>
+<br><br>
+<button class="btn btn-secondary" (click)="openModal10()">Add Record</button>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class=" container-fluid mt--6">
+    
+<div [ngStyle]="{'display':display10}" >
+
+<form
+name="form"
+(ngSubmit)="onSubmit()"
+#f="ngForm"
+novalidate
+>
+
+<div class=" card mb-4">
+    <!-- <div class=" card-header"><h3 class=" mb-0">Add Activities</h3></div> -->
+    
+    <div class=" card-body">
+    
+        <div class="row">
+
+<div class="col-lg-4">
+
+<label class=" form-control-label" >Select Module</label>
+
+<select class="form-control" name="module_id" required id="module_id" [(ngModel)]="form.module_id">
+<ng-container *ngFor="let modules of getModulesData" >
+<option [value]="modules.id">{{modules.moduleDesc}}</option>
+</ng-container>
+</select>
+
+<br>
+<button class="btn btn-secondary">
+Create Sub Modules
+</button>
+</div>
+
+<div class="col-lg-4">
+
+<label class=" form-control-label" >Sub Module Desc</label>
+
+<input type="text" class="form-control" name="sub_module_desc" required id="sub_module_desc" [(ngModel)]="form.sub_module_desc" >
+
+</div>
+
+<div class="col-lg-4">
+
+<label class=" form-control-label" >Sub Module Link</label>
+
+<input type="text" class="form-control" name="sub_module_link" required id="sub_module_link" [(ngModel)]="form.sub_module_link" >
+
+</div>
+
+</div>
+<br>
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+<div class="row">
+<div class="col">
+<div class="card shadow">
+<div class="card-header border-0">
+<h3 class="mb-0">Sub Module Details</h3>
+
+<nav class="navbar" style="float: left;">
+&nbsp;&nbsp;    
+<label class=" form-control-label" >Search : </label>&nbsp;&nbsp;&nbsp; 
+<input type="text" name="search" [(ngModel)]="form.search"
+class="form-control" >      
+</nav>
+
+</div>
+
+<div class="table-responsive">
+<table class=" table align-items-center table-flush table-hover" >
+<tr>
+
+<th>Module Desc</th>
+<th>Sub Module Desc</th>
+<th>Delete</th>
+
+</tr>
+<tr *ngFor="let info of getData | filter:form.search;">
+
+<td>{{info.moduleDesc}}</td>
+<td>{{info.subModuleDesc}}</td>
+<td><button (click)="deleteData(info.id)" class="btn btn-secondary">Delete</button></td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+

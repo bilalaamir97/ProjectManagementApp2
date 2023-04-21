@@ -1,0 +1,153 @@
+<!-- <div class=" header bg-danger pb-6"> -->
+<div class=" header pb-6" style="background-color:#2596be;">
+
+<div class=" container-fluid">
+<div class=" header-body">
+<div class=" row align-items-center py-4">
+<div class=" col-lg-6 col-7">
+<h6 class=" h2 text-white d-inline-block mb-0">Employee Office Timings</h6>
+<br><br>
+<button class="btn btn-secondary" (click)="openModal10()">Add Record</button>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class=" container-fluid mt--6">
+        
+<div [ngStyle]="{'display':display10}" >
+
+<form
+name="form"
+(ngSubmit)="onSubmit()"
+#f="ngForm"
+novalidate
+>
+
+<div class=" card mb-4">
+    <!--div class=" card-header"><h3 class=" mb-0">Add Activities</h3></div-->
+    
+<div class=" card-body">
+
+<div class="row">
+
+<div class="col-lg-4">
+
+<label class=" form-control-label" >Select Project</label>
+<select class="form-control" name="project_id" required id="project_id" [(ngModel)]="form.project_id" >
+<ng-container *ngFor="let projects of getProjectsData" >
+<option [value]="projects.id">{{projects.projectDesc}}</option>
+</ng-container>
+</select>
+
+<label class=" form-control-label" >From Date</label>
+<input type="date" class="form-control" name="from_date" required id="from_date" [(ngModel)]="form.from_date" >
+
+<label class=" form-control-label" >Time Out</label>
+<input type="time" class="form-control" name="time_out" required id="time_out" [(ngModel)]="form.time_out" >
+
+<br>
+<button class="btn btn-secondary">
+Create Record 
+</button>
+</div>
+
+<div class="col-lg-4">
+
+<label class=" form-control-label" >Select Employees</label>
+
+<select class="form-control" name="employee_id" required id="employee_id" [(ngModel)]="form.employee_id" >
+<ng-container *ngFor="let employees of getEmployeesData" >
+<option [value]="employees.id">{{employees.empName}}</option>
+</ng-container>
+</select>
+
+<label class=" form-control-label" >To Date</label>
+<input type="date" class="form-control" name="to_date" required id="to_date" [(ngModel)]="form.to_date" >
+
+</div>
+
+<div class="col-lg-4">
+
+<label class=" form-control-label" >Select Day</label>
+
+<select class="form-control" name="day" required id="day" [(ngModel)]="form.day" >
+<option >Monday</option>
+<option >Tuesday</option>
+<option >Wednesday</option>
+<option >Thursday</option>
+<option >Friday</option>
+<option >Saturday</option>
+<option >Sunday</option>
+</select>
+
+<label class=" form-control-label" >Time In</label>
+<input type="time" class="form-control" name="time_in" required id="time_in" [(ngModel)]="form.time_in" >
+
+
+</div>
+
+</div>
+<br>
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+<div class="row">
+<div class="col">
+<div class="card shadow">
+<div class="card-header border-0">
+<h3 class="mb-0">Employee Office Timing Details</h3>
+
+<nav class="navbar" style="float: left;">
+&nbsp;&nbsp;    
+<label class=" form-control-label" >Search : </label>&nbsp;&nbsp;&nbsp; 
+<input type="text" name="search" [(ngModel)]="form.search"
+class="form-control" >      
+</nav>
+
+</div>
+
+<div class="table-responsive">
+<table class=" table align-items-center table-flush table-hover" >
+<tr>
+
+<th>Project</th>
+<th>Employee</th>
+<th>Day</th>
+<th>TimeIn</th>
+<th>TimeOut</th>
+<th>FromDate</th>
+<th>ToDate</th>
+<th>Delete</th>
+
+</tr>
+<tr *ngFor="let info of getData | filter:form.search;">
+
+<td>{{info.projectDesc}}</td>
+<td>{{info.empName}}</td>
+<td>{{info.day}}</td>
+<td>{{info.timeIn}}</td>
+<td>{{info.timeOut}}</td>
+<td>{{info.fromDate}}</td>
+<td>{{info.toDate}}</td>
+<td><button (click)="deleteData(info.id)" class="btn btn-secondary">Delete</button></td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</div>

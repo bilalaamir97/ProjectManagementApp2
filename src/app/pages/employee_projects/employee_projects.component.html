@@ -1,0 +1,131 @@
+<!-- <div class=" header bg-danger pb-6"> -->
+<div class=" header pb-6" style="background-color:#2596be;">
+
+<div class=" container-fluid">
+<div class=" header-body">
+<div class=" row align-items-center py-4">
+<div class=" col-lg-6 col-7">
+<h6 class=" h2 text-white d-inline-block mb-0">Employee Projects</h6>
+<br><br>
+<button class="btn btn-secondary" (click)="openModal10()">Add Record</button>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class=" container-fluid mt--6">
+        
+<div [ngStyle]="{'display':display10}" >
+
+<form
+name="form"
+(ngSubmit)="onSubmit()"
+#f="ngForm"
+novalidate
+>
+
+<div class=" card mb-4">
+<!--div class=" card-header"><h3 class=" mb-0">Add Activities</h3></div-->
+
+<div class=" card-body">
+<div class="row">
+
+<div class="col-lg-4">
+
+<label class=" form-control-label" >Select Project</label>
+
+<select class="form-control" name="project_id" required id="project_id" [(ngModel)]="form.project_id">
+<ng-container *ngFor="let projects of getProjectsData" >
+<option [value]="projects.id">{{projects.projectDesc}}</option>
+</ng-container>
+</select>
+
+<label class=" form-control-label" >Per Hour Payrate</label>
+
+<input type="number" class="form-control" name="per_hour_rate" required id="per_hour_rate" [(ngModel)]="form.per_hour_rate" >
+
+<br>
+<button class="btn btn-secondary">
+Assign Employees
+</button>
+</div>
+
+<div class="col-lg-4">
+
+<label class=" form-control-label" >Select Employees</label>
+
+<select class="form-control" name="employees" required id="employees" [(ngModel)]="form.employees" >
+<ng-container *ngFor="let employees of getEmployeesData" >
+<option [value]="employees.id">{{employees.empName}}</option>
+</ng-container>
+</select>
+
+</div>
+
+<div class="col-lg-4">
+
+<label class=" form-control-label" >Monthly Salary</label>
+
+<input type="number" value="0" class="form-control" name="monthly_salary" required id="monthly_salary" 
+[(ngModel)]="form.monthly_salary" >
+
+</div>
+
+</div>
+<br>
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+<div class="row">
+<div class="col">
+<div class="card shadow">
+<div class="card-header border-0">
+<h3 class="mb-0">Employee Project Details</h3>
+
+<nav class="navbar" style="float: left;">
+&nbsp;&nbsp;    
+<label class=" form-control-label" >Search : </label>&nbsp;&nbsp;&nbsp; 
+<input type="text" name="search" [(ngModel)]="form.search"
+class="form-control" >      
+</nav>
+
+</div>
+
+<div class="table-responsive">
+<table class=" table align-items-center table-flush table-hover" >
+<tr>
+<th>Project</th>
+<th>Employee</th>
+<th>Monthly Salary</th>
+<th>Per Hour Rate</th>
+<th>Delete</th>
+
+</tr>
+<tr *ngFor="let info of getData | filter:form.search;">
+
+<td>{{info.projectDesc}}</td>
+<td>{{info.empName}}</td>
+<td>{{info.monthlySalary}}$</td>
+<td>{{info.perHourRate}}$</td>
+<td><button (click)="deleteData(info.id)" class="btn btn-secondary">Delete</button></td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+

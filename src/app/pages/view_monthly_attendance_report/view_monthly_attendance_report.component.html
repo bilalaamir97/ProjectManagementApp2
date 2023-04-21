@@ -1,0 +1,84 @@
+<!-- <div class=" header bg-danger pb-6"> -->
+<div class=" header pb-6" style="background-color:#2596be;">
+
+<div class=" container-fluid">
+<div class=" header-body">
+<div class=" row align-items-center py-4">
+<div class=" col-lg-6 col-7">
+<h6 class=" h2 text-white d-inline-block mb-0">Monthly Attendance Report</h6>
+<br>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class=" container-fluid mt--6">
+
+<form
+name="form"
+(ngSubmit)="onSubmit()"
+#f="ngForm"
+novalidate
+>
+
+<div class=" card mb-4">
+<!-- <div class=" card-header"><h3 class=" mb-0">Activity Wise Task Report</h3></div> -->
+
+<div class=" card-body">
+<div class="row">
+
+<div class="col-lg-4">
+
+<label class=" form-control-label" >Select Team</label>
+
+<select class="form-control" name="teams" required id="teams" [(ngModel)]="form.teams">
+<option value="0">Select All</option>
+<ng-container *ngFor="let teams of getTeamsData" >
+<option [value]="teams.id">{{teams.teamDesc}}</option>
+</ng-container>
+</select>
+
+<br>
+<a href="http://localhost:82/task_reports/daily_att_report" target="_blank">
+<button class="btn btn-secondary" type="button" (click)="onSubmit()">
+Show Report
+</button></a>
+</div>
+
+<div class="col-lg-4">
+
+<label class=" form-control-label" >Select From Date</label>
+<input
+type="date"
+class="form-control"
+id="from_date"
+name="from_date"
+required
+[(ngModel)]="form.from_date" />
+    
+</div>
+
+<div class="col-lg-4">
+
+<label class=" form-control-label" >Select To Date</label>
+<input
+type="date"
+class="form-control"
+id="to_date"
+name="to_date"
+required
+[(ngModel)]="form.to_date" />
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</form>
+

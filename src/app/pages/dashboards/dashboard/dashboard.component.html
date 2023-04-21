@@ -1,0 +1,1985 @@
+<div class=" header pb-6" style="background-color:#2596be;">
+<div class=" container-fluid">
+<div class=" header-body">
+<div class=" row align-items-center py-4">
+<div class=" col-lg-6 col-7">
+<h6 class=" h2 text-white d-inline-block mb-0">Dashboard</h6>
+
+</div>
+</div>
+
+<div class=" row">
+
+<div class=" col-xl-2 col-md-6">
+<div class=" card card-stats">
+<div class=" card-body">
+<div class=" row">
+<div class=" col">
+
+<h5 class=" card-title text-uppercase text-muted mb-0" (click)="openModalCustomer()" title="Please click for Details">
+Customers <i style="font-size:16px; width:20px;" class="ni ni-active-40"></i>
+</h5>
+
+<ng-container *ngFor="let info of getTOTALCUSTOMER">
+<span class=" h2 font-weight-bold mb-0">{{info.totalCustomers}}</span>
+</ng-container>
+</div>
+
+<div class=" col-auto">
+<div
+class=" icon icon-shape bg-gradient-default text-white rounded-circle shadow"
+>
+<i class="ni ni-archive-2"> </i>
+
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+<div class=" col-xl-2 col-md-4">
+<div class=" card card-stats">
+<div class=" card-body">
+<div class=" row">
+<div class=" col">
+<h5 class=" card-title text-uppercase text-muted mb-0" (click)="openModal1()" title="Please click for Details">
+Projects <i style="font-size:16px; width:20px;" class="ni ni-active-40"></i>
+</h5>
+
+<ng-container *ngFor="let info of getTOTALPROJECT">
+<span class=" h2 font-weight-bold mb-0">{{info.totalProject}}</span>
+</ng-container>
+</div>
+
+<div class=" col-auto">
+<div
+class=" icon icon-shape bg-gradient-danger text-white rounded-circle shadow"
+>
+
+<i class="ni ni-archive-2"> </i>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<div class=" col-xl-2 col-md-4">
+<div class=" card card-stats">
+<div class=" card-body">
+<div class=" row">
+<div class=" col">
+<h5 class=" card-title text-uppercase text-muted mb-0" 
+(click)="openModal2()" title="Please click for Details">
+Teams <i style="font-size:16px; width:20px;" class="ni ni-active-40"></i>
+</h5>
+
+<ng-container *ngFor="let info of getTOTALTEAMS">
+<span class=" h2 font-weight-bold mb-0">{{info.totalTeams}}</span>
+</ng-container>
+</div>
+
+<div class=" col-auto">
+<div
+class=" icon icon-shape bg-gradient-primary text-white rounded-circle shadow"
+>
+<i class="ni ni-archive-2"> </i>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class=" col-xl-2 col-md-4">
+<div class  =" card card-stats">
+<div class=" card-body">
+<div class=" row">
+<div class=" col">
+<h5 class=" card-title text-uppercase text-muted mb-0" 
+(click)="openModal3()" title="Please click for Details">
+Employees <i style="font-size:16px; width:20px;" class="ni ni-active-40"></i>
+</h5>
+
+<ng-container *ngFor="let info of getTOTALEMPLOYEES">
+<span class=" h2 font-weight-bold mb-0">{{info.totalEmployees}}</span>
+</ng-container>
+</div>
+
+<div class=" col-auto">
+<div
+class=" icon icon-shape bg-gradient-orange text-white rounded-circle shadow"
+>
+
+<i class="ni ni-archive-2"> </i>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class=" col-xl-2 col-md-4">
+<div class=" card card-stats">
+<div class=" card-body">
+<div class=" row">
+<div class=" col">
+
+<h5 class=" card-title text-uppercase text-muted mb-0" 
+(click)="openModal4()" title="Please click for Details">
+Activites <i style="font-size:16px; width:20px;" class="ni ni-active-40"></i>
+</h5>
+
+
+<ng-container *ngFor="let info of getTOTALACTIVITIES">
+<span class=" h2 font-weight-bold mb-0">{{info.totalActivities}}</span>
+</ng-container>
+</div>
+
+<div class=" col-auto">
+<div
+class=" icon icon-shape bg-gradient-green text-white rounded-circle shadow"
+>
+
+<i class="ni ni-archive-2"> </i>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class=" col-xl-2 col-md-4">
+<div class=" card card-stats">
+<div class=" card-body">
+<div class=" row">
+<div class=" col">
+
+<h5 class=" card-title text-uppercase text-muted mb-0" 
+(click)="openModal5()" 
+title="Please click for Details">
+Users <i style="font-size:16px; width:20px;" class="ni ni-active-40"></i>
+</h5>
+    
+<ng-container *ngFor="let info of getTOTALUSERS">
+<span class=" h2 font-weight-bold mb-0">{{info.totalUsers}}</span>
+</ng-container>
+
+</div>
+
+<div class=" col-auto">
+<div
+class=" icon icon-shape bg-gradient-info text-white rounded-circle shadow"
+>
+
+<i class="ni ni-archive-2"> </i>
+
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="backdrop" [ngStyle]="{'display':modeldisplay}"></div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':modeldisplay}" >
+<div class="modal-dialog" role="document">
+<div class="modal-content" style="width: 1100px; margin-left: -300px;" >
+<div class="modal-header" >
+
+<h6 class="modal-title">Customer Details</h6>
+
+<button class="close" type="button" aria-label="Close" (click)="onCloseHandled()" >
+<span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body">
+<style>
+th,td{
+font-size:12px; 
+}
+</style>
+<div class="table-responsive" >	
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th >Customer Name</th>
+<th>Company Name</th>
+<th>Customer Desc</th>
+<th>Address</th>
+<th>Country</th>
+<th>Currency</th>
+<th>Email</th>
+<th>Mobile No</th>
+<th>Phone No</th>
+
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let info of getCustomersData">
+
+<td>{{info.customerName}}</td>
+<td>{{info.companyName}}</td>
+<td>{{info.customerDescription}}</td>
+<td>{{info.customerAddress}}</td>
+<td>{{info.country}}</td>
+<td>{{info.currency}}</td>
+<td>{{info.email}}</td>
+<td>{{info.mobile}}</td>
+<td>{{info.phone}}</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="backdrop" [ngStyle]="{'display':modeldisplay1}"></div>
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':modeldisplay1}" >
+<div class="modal-dialog" role="document">
+  <div class="modal-content" style="width: 1100px; margin-left: -300px;" >
+    <div class="modal-header">
+
+<h6 class="modal-title">Project Details</h6>
+
+<button class="close" type="button" aria-label="Close" (click)="onCloseHandled1()" >
+<span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body" >
+<style>
+th,td{
+font-size:12px; 
+}
+</style>
+<div class="table-responsive" style="height:400px;">	
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Customer</th>
+<th>Project </th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let info of getProjectData">
+
+<td>{{info.companyName}}</td>
+<td>{{info.projectDesc}}</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="backdrop" [ngStyle]="{'display':modeldisplay2}"></div>
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':modeldisplay2}" >
+<div class="modal-dialog" role="document">
+  <div class="modal-content" style="width: 1100px; margin-left: -300px;" >
+    <div class="modal-header">
+
+<h6 class="modal-title">Team Details</h6>
+
+<button class="close" type="button" aria-label="Close" (click)="onCloseHandled2()" >
+<span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body" >
+<style>
+th,td{
+font-size:12px; 
+}
+</style>
+<div class="table-responsive" style="height:400px;">	
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Team Name</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let info of getTeamsData">
+<td>{{info.teamDesc}}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="backdrop" [ngStyle]="{'display':modeldisplay3}"></div>
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':modeldisplay3}" >
+<div class="modal-dialog" role="document">
+  <div class="modal-content" style="width: 1100px; margin-left: -300px;" >
+    <div class="modal-header">
+
+<h6 class="modal-title">Employee Details</h6>
+
+<button class="close" type="button" aria-label="Close" (click)="onCloseHandled3()" >
+<span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body" >
+<style>
+th,td{
+font-size:12px; 
+}
+</style>
+<div class="table-responsive" style="height:400px;">	
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Emp Name</th>
+<th>Father Name</th>
+<th>Joining Date</th>
+<th>Department</th>
+<th>Designation</th>
+<th>Region</th>
+<th>Gender</th>
+<th>Id Card Number</th>
+<th>Contact No</th>
+<th>Phone No</th>
+<th>Att Exempt</th>
+<th>Full/Part Timer</th>
+
+<th>Email</th>
+<th>Address</th>
+<th>State</th>
+<th>Zip Code</th>
+<th>Work Location Address</th>
+<th>Work Location State</th>
+<th>Work Location ZipCode</th>
+<th>Working Overtime</th>
+
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let info of getEmployeesData">
+
+<td>{{info.empName}}</td>
+<td>{{info.fatherName}}</td>
+<td>{{info.joiningDate}}</td>
+<td>{{info.department.departmentDesc}}</td>
+<td>{{info.designation.designationDesc}}</td>
+<td>{{info.region.regionDesc}}</td>
+<td>{{info.gender}}</td>
+<td>{{info.idCardNumber}}</td>
+<td>{{info.contactNo}}</td>
+<td>{{info.phoneNo}}</td>
+<td>{{info.attExempt}}</td>
+<td>{{info.fullPartTimer}}</td>
+
+<td>{{info.email}}</td>
+<td>{{info.address}}</td>
+<td>{{info.state}}</td>
+<td>{{info.zipCode}}</td>
+<td>{{info.workLocationAddress}}</td>
+<td>{{info.workLocationState}}</td>
+<td>{{info.workLocationZipCode}}</td>
+
+<td>{{info.workOvertime}}</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="backdrop" [ngStyle]="{'display':modeldisplay4}"></div>
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':modeldisplay4}" >
+<div class="modal-dialog" role="document">
+  <div class="modal-content" style="width: 1100px; margin-left: -300px;" >
+    <div class="modal-header">
+
+<h6 class="modal-title">Activities Details</h6>
+
+<button class="close" type="button" aria-label="Close" (click)="onCloseHandled4()" >
+<span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body" >
+<style>
+th,td{
+font-size:12px; 
+}
+</style>
+<div class="table-responsive" style="height:400px;">	
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Project</th>
+<th>Activity Desc</th>
+<th>Start Time</th>
+<th>End Time</th>
+<th>Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let info of getActivitiesData">
+
+<td>{{info.projectDesc}}</td>
+<td>{{info.activityDesc}}</td>
+<td>{{info.startTime}}</td>
+<td>{{info.endTime}}</td>
+<td>{{info.rate}}</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="backdrop" [ngStyle]="{'display':modeldisplay5}"></div>
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':modeldisplay5}" >
+<div class="modal-dialog" role="document">
+  <div class="modal-content" style="width: 1100px; margin-left: -300px;" >
+    <div class="modal-header">
+
+<h6 class="modal-title">User Details</h6>
+
+<button class="close" type="button" aria-label="Close" (click)="onCloseHandled5()" >
+<span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body" >
+<style>
+th,td{
+font-size:12px; 
+}
+</style>
+<div class="table-responsive" style="height:400px;">	
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Role</th>
+<th>Email</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Contact No</th>
+<th>Address</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let info of getUsersData">
+
+<td>{{info.role.roleDesc}}</td>
+<td>{{info.email}}</td>
+<td>{{info.firstName}}</td>
+<td>{{info.lastName}}</td>
+<td>{{info.contactNo}}</td>
+<td>{{info.address}}</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class=" container-fluid mt--6">
+
+<ng-container *ngIf="dashboardEmployeeId == 'null' ">
+
+
+<button class="btn btn-default" (click)="openModal()">Show Serilog</button>
+
+<br><br>
+
+<div [ngStyle]="{'display':display1}" >
+
+
+<div class="row">
+<div class="col-lg-12">
+
+<div class="card">
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>Get Serilog</h4>
+</div>
+
+<div class="card-body">
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Message</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getSerilog ">
+
+<td>{{info.message}}</td>
+<td>{{info.timeStamp}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<!-- Row -->
+
+</div>
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>Daily Attendance</h4>
+</div>
+
+<div class="card-body">
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Emp Name</th>
+<th>Department</th>
+<th>Designation</th>
+<th>Att Date</th>
+<th>Time In</th>
+<th>Time Out</th>
+<th>Approved</th>
+<th>Approved On </th>
+<th>Approver Email</th>
+<th>Approval Remarks</th>
+<th>Approve</th>
+
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getDailyAttendanceDetail ">
+<td>{{info.empName}}</td>
+<td>{{info.department}}</td>
+<td>{{info.designation}}</td>
+<td>{{info.attDate}}</td>
+<td>{{info.timeIn}}</td>
+<td>{{info.timeOut}}</td>
+
+<td>{{info.approvedByAdmin}}</td>
+<td>{{info.approvedByAdminOn}}</td>
+<td>{{info.approverAdminEmail}}</td>
+<td>{{info.approverAdminRemarks}}</td>
+
+<td *ngIf="info.approvedByAdmin == 'Y'"><button disabled class="btn btn-default" style="font-size:10px;" (click)="editadminatt(info.id)" 
+(click)="openModalattadmin()">Approve</button></td>
+
+<td *ngIf="info.approvedByAdmin != 'Y'"><button class="btn btn-default" style="font-size:10px;" (click)="editadminatt(info.id)" 
+(click)="openModalattadmin()">Approve</button></td>
+
+<!-- <td><button class="btn btn-default" style="font-size:10px;"
+(click)="approveattadmin(info.id)"
+>Approve</button> </td> -->
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+
+<h4 class="card-title"><span class="lstick"></span>Daily Tasks</h4>
+
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+
+<th>Project</th>
+<th>Team</th>
+<th>Employee</th>
+<th>Activity</th>
+<th>Task Title</th>
+<th>Task Desc</th>
+<th>Start DateTime</th>
+<th>End DateTime</th>
+<th>Time Estimation In Hours</th>
+<th>Started</th>
+<th>Started Time</th>
+<th>Closed</th>
+<th>Closed Time</th>
+<th>Completed</th>
+<th>Abandoned</th>
+
+<th>Approved </th>
+<th>Approved On </th>
+<th>Approver Email</th>
+<th>Approval Remarks</th>
+<th>Approve</th>
+
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getTasksAllData">
+
+<td>{{info.projectDesc}}</td>
+<td>{{info.teamDesc}}</td>
+<td>{{info.empName}}</td>
+<td>{{info.activityDesc}}</td>
+<td>{{info.taskTitle}}</td>
+<td>{{info.taskDescription}}</td>
+<td>{{info.startDateTime}}</td>
+<td>{{info.endDateTime}}</td>
+<td>{{info.timeEstimationHours}}</td>
+<td>{{info.started}}</td>
+<td>{{info.startedTime}}</td>
+<td>{{info.closed}}</td>
+<td>{{info.closedTime}}</td>
+<td>{{info.completed}}</td>
+<td>{{info.abandoned}}</td>
+
+<td>{{info.approvedByAdmin}}</td>
+<td>{{info.approvedByAdminOn}}</td>
+<td>{{info.approverAdminEmail}}</td>
+<td>{{info.approverAdminRemarks}}</td>
+
+<td *ngIf="info.approvedByAdmin == 'Y'"><button disabled class="btn btn-default" 
+style="font-size:10px;" (click)="editadmintask(info.taskId)" 
+(click)="openModaltaskadmin()">Approve</button></td>
+
+<td *ngIf="info.approvedByAdmin != 'Y'"><button class="btn btn-default" 
+style="font-size:10px;" (click)="editadmintask(info.taskId)" 
+(click)="openModaltaskadmin()">Approve</button></td>
+
+<!-- <td><button class="btn btn-default" style="font-size:10px;"
+(click)="approvetaskadmin(info.taskId)"
+>Approve</button> </td> -->
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div [ngStyle]="{'display':display4}" >
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>Activities Detail</h4>
+</div>
+
+<div class="card-body">
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+
+<th>Company</th>
+<th>Project</th>
+<th>Emp</th>
+<th>Department</th>
+<th>Designation</th>
+<th>Performing Date</th>
+<th>Start Time</th>
+<th>End Time</th>
+
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getActivitiesDetails">
+
+<td>{{info.companyName}}</td>
+<td>{{info.projectDesc}}</td>
+<td>{{info.empName}}</td>
+<td>{{info.departmentDesc}}</td>
+<td>{{info.designationDesc}}</td>
+<td>{{info.performingDate}}</td>
+<td>{{info.startTime}}</td>
+<td>{{info.endTime}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>Monthly Payroll Details</h4>
+</div>
+
+<div class="card-body">
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+
+<th>Project</th>
+<th>Month</th>
+<th>Emp Name</th>
+<th>Type</th>
+<th>Pay Rate</th>
+<th>Total Days</th>
+<th>W Days</th>
+<th>Working Hours</th>
+<th>Per Day Rate</th>
+<th>No of Late</th>
+<th>Late Days Amount</th>
+<th>Current Net Pay</th>
+
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getMonthlyPayrollDetails">
+<td>{{info.projectDesc}}</td>
+<td>{{info.projectDesc}}</td>
+<td>{{info.empName}}</td>
+<td>{{info.empType}}</td>
+<td>{{info.payRate}}</td>
+<td>{{info.totalDays}}</td>
+<td>{{info.wDays}}</td>
+<td>{{info.totalWorkingHours}}</td>
+<td>{{info.perDayRate}}</td>
+<td>{{info.noOfLate}}</td>
+<td>{{info.lateDaysAmount}}</td>
+<td>{{info.currentMonthNetPay}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div [ngStyle]="{'display':display2}" >
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>Customer Invoice Detail</h4>
+</div>
+
+<div class="card-body">
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Customer</th>
+<th>Activity</th>
+<th>Month</th>
+<th>Total Performed</th>
+<th>Rate</th>
+<th>Total Amount</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getCustomerInvoiceDetails ">
+
+<td>{{info.companyName}}</td>
+<td>{{info.activityDesc}}</td>
+<td>{{info.month}}</td>
+<td>{{info.totalPerformed}}</td>
+<td>{{info.rate}}</td>
+<td>{{info.totalAmount}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+</ng-container>
+
+
+<ng-container *ngIf="dashboardEmployeeId != 'null' ">
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>My Projects</h4>
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Project</th>
+<th>Employee</th>
+<th>Monthly Salary</th>
+<th>Per Hour Rate</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getEmpProjectsData">
+
+<td>{{info.project.projectDesc}}</td>
+<td>{{info.emp.empName}}</td>
+<td>{{info.monthlySalary}}$</td>
+<td>{{info.perHourRate}}$</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>My Office Timings</h4>
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Project</th>
+<th>Employee</th>
+<th>Day</th>
+<th>TimeIn</th>
+<th>TimeOut</th>
+<th>FromDate</th>
+<th>ToDate</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getEmpOfficeTimingsData">
+
+<td>{{info.project.projectDesc}}</td>
+<td>{{info.emp.empName}}</td>
+<td>{{info.day}}</td>
+<td>{{info.timeIn}}</td>
+<td>{{info.timeOut}}</td>
+<td>{{info.fromDate}}</td>
+<td>{{info.toDate}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>My Off Days</h4>
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Project</th>
+<th>Employee</th>
+<th>OffDay</th>
+<th>FromDate</th>
+<th>ToDate</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getEmpOffDaysData">
+
+<td>{{info.project.projectDesc}}</td>
+<td>{{info.emp.empName}}</td>
+<td>{{info.day}}</td>
+<td>{{info.fromDate}}</td>
+<td>{{info.toDate}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+
+<h4 class="card-title"><span class="lstick"></span>My Team</h4>
+
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Team</th>
+<th>Employee</th>
+<th>Is Team Leader</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getTeamEmployeesData">
+
+<td>{{info.team.teamDesc}}</td>
+<td>{{info.emp.empName}}</td>
+<td>{{info.isTeamLeader}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+
+<h4 class="card-title"><span class="lstick"></span>My Task</h4>
+
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Employee</th>
+<th>Activity</th>
+<th>Task Title</th>
+<th>Task Desc</th>
+<th>Start DateTime</th>
+<th>End DateTime</th>
+<th>Time Estimation In Hours</th>
+<th>Started</th>
+<th>Started Time</th>
+<th>Closed</th>
+<th>Closed Time</th>
+<th>Completed</th>
+<th>Abandoned</th>
+<th>Start</th>
+<th>Close</th>
+<th>Abandone</th>
+
+<th>Approved By Lead</th>
+<th>Approved On </th>
+<th>Approver Lead Email</th>
+<th>Approval Lead Remarks</th>
+<th>Approved By Admin</th>
+<th>Approved On </th>
+<th>Approver Admin Email</th>
+<th>Approval Admin Remarks</th>
+
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getTasksData">
+
+<td>{{info.emp.empName}}</td>
+<td>{{info.activity.activityDesc}}</td>
+<td>{{info.taskTitle}}</td>
+<td>{{info.taskDescription}}</td>
+<td>{{info.startDateTime}}</td>
+<td>{{info.endDateTime}}</td>
+<td>{{info.timeEstimationHours}}</td>
+<td>{{info.started}}</td>
+<td>{{info.startedTime}}</td>
+<td>{{info.closed}}</td>
+<td>{{info.closedTime}}</td>
+<td>{{info.completed}}</td>
+<td>{{info.abandoned}}</td>
+
+<td><button (click)="start(info.id,info.taskTitle,info.activityId,info.empId,
+info.startDateTime,info.endDateTime,info.timeEstimationHours,info.taskDescription,
+info.teamId,info.rowVersion,info.started,info.startedTime,info.closed,info.closedTime,
+info.completed,info.abandoned)" 
+class="btn btn-default">Start</button></td>
+
+<td><button (click)="close(info.id,info.taskTitle,info.activityId,info.empId,
+info.startDateTime,info.endDateTime,info.timeEstimationHours,info.taskDescription,
+info.teamId,info.rowVersion,info.started,info.startedTime,info.closed,info.closedTime,
+info.completed,info.abandoned)" class="btn btn-warning">Close</button></td>
+
+<td><button (click)="abandon(info.id,info.taskTitle,info.activityId,info.empId,
+info.startDateTime,info.endDateTime,info.timeEstimationHours,info.taskDescription,
+info.teamId,info.rowVersion,info.started,info.startedTime,info.closed,info.closedTime,
+info.completed,info.abandoned)" class="btn btn-danger">Abandon</button></td>
+
+<td>{{info.approvedByTeamLead}}</td>
+<td>{{info.approvedByTeamLeadOn}}</td>
+<td>{{info.approverTeamLeadEmail}}</td>
+<td>{{info.approverTeamLeadRemarks}}</td>
+
+<td>{{info.approvedByAdmin}}</td>
+<td>{{info.approvedByAdminOn}}</td>
+<td>{{info.approverAdminEmail}}</td>
+<td>{{info.approverAdminRemarks}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>My Activities</h4>
+
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Activity</th>
+<th>Employee</th>
+<th>Performing Date</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getEmployeesActivitiesData">
+
+<td>{{info.activity.activityDesc}}</td>
+<td>{{info.emp.empName}}</td>
+<td>{{info.performingDate}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>My Attendance</h4>
+
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+
+<th>Emp Name</th>
+<th>Att Date</th>
+<th>Check In</th>
+<th>Check Out</th>
+<th>Present</th>
+
+<th>Edit</th>
+
+<th>Approved By Lead</th>
+<th>Approved On </th>
+<th>Approver Lead Email</th>
+<th>Approval Lead Remarks</th>
+<th>Approved By Admin</th>
+<th>Approved On </th>
+<th>Approver Admin Email</th>
+<th>Approval Admin Remarks</th>
+
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getEmpAttData">
+
+<td>{{info.empName}}</td>
+<td>{{info.attDate}}</td>
+<td>{{info.checkIn}}</td>
+<td>{{info.checkOut}}</td>
+<td>{{info.present}}</td>
+
+<td *ngIf="info.checkIn != '' "><button class="btn btn-default" 
+style="font-size:10px;" (click)="edit_attendance_in(info.id,info.checkIn)" 
+(click)="openModal_attendance_in()">Edit</button></td>
+
+<td *ngIf="info.checkOut != '' "><button class="btn btn-default" 
+style="font-size:10px;" (click)="edit_attendance_out(info.id,info.checkOut)" 
+(click)="openModal_attendance_out()">Edit</button></td>
+
+<td>{{info.approvedByTeamLead}}</td>
+<td>{{info.approvedByTeamLeadOn}}</td>
+<td>{{info.approverTeamLeadEmail}}</td>
+<td>{{info.approverTeamLeadRemarks}}</td>
+
+<td>{{info.approvedByAdmin}}</td>
+<td>{{info.approvedByAdminOn}}</td>
+<td>{{info.approverAdminEmail}}</td>
+<td>{{info.approverAdminRemarks}}</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+</ng-container>
+
+
+<ng-container *ngIf="dashboardisTeamLead == 'Yes' ">
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>My Team Projects</h4>
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Project</th>
+<th>Team</th>
+<th>Employee</th>
+<th>Monthly Salary</th>
+<th>Per Hour Rate</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getTeamEmpProjectData">
+
+<td>{{info.projectDesc}}</td>
+<td>{{info.teamDesc}}</td>
+<td>{{info.empName}}</td>
+<td>{{info.monthlySalary}}$</td>
+<td>{{info.perHourRate}}$</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>My Team Office Timings</h4>
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Project</th>
+<th>Team</th>
+<th>Employee</th>
+<th>Day</th>
+<th>TimeIn</th>
+<th>TimeOut</th>
+<th>FromDate</th>
+<th>ToDate</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getTeamEmpTimingsData">
+
+<td>{{info.projectDesc}}</td>
+<td>{{info.teamDesc}}</td>
+<td>{{info.empName}}</td>
+<td>{{info.day}}</td>
+<td>{{info.timeIn}}</td>
+<td>{{info.timeOut}}</td>
+<td>{{info.fromDate}}</td>
+<td>{{info.toDate}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>My Team Off Days</h4>
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Project</th>
+<th>Team</th>
+<th>Employee</th>
+<th>OffDay</th>
+<th>FromDate</th>
+<th>ToDate</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getTeamEmpOffDaysTimingsData">
+
+<td>{{info.projectDesc}}</td>
+<td>{{info.teamDesc}}</td>
+<td>{{info.empName}}</td>
+<td>{{info.day}}</td>
+<td>{{info.fromDate}}</td>
+<td>{{info.toDate}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+
+<h4 class="card-title"><span class="lstick"></span>My Team Employees</h4>
+
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Team</th>
+<th>Employee</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getTeamEmpsData">
+
+<td>{{info.empName}}</td>
+<td>{{info.teamDesc}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+
+<h4 class="card-title"><span class="lstick"></span>My Team Tasks</h4>
+
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+
+<th>Project</th>
+<th>Team</th>
+<th>Employee</th>
+<th>Activity</th>
+<th>Task Title</th>
+<th>Task Desc</th>
+<th>Start DateTime</th>
+<th>End DateTime</th>
+<th>Time Estimation In Hours</th>
+<th>Started</th>
+<th>Started Time</th>
+<th>Closed</th>
+<th>Closed Time</th>
+<th>Completed</th>
+<th>Abandoned</th>
+
+<th>Approved </th>
+<th>Approved On </th>
+<th>Approver Email</th>
+<th>Approval Remarks</th>
+<th>Approve</th>
+
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getTeamEmpTaskData">
+
+<td>{{info.projectDesc}}</td>
+<td>{{info.teamDesc}}</td>
+<td>{{info.empName}}</td>
+<td>{{info.activityDesc}}</td>
+<td>{{info.taskTitle}}</td>
+<td>{{info.taskDescription}}</td>
+<td>{{info.startDateTime}}</td>
+<td>{{info.endDateTime}}</td>
+<td>{{info.timeEstimationHours}}</td>
+<td>{{info.started}}</td>
+<td>{{info.startedTime}}</td>
+<td>{{info.closed}}</td>
+<td>{{info.closedTime}}</td>
+<td>{{info.completed}}</td>
+<td>{{info.abandoned}}</td>
+
+<td>{{info.approvedByTeamLead}}</td>
+<td>{{info.approvedByTeamLeadOn}}</td>
+<td>{{info.approverTeamLeadEmail}}</td>
+<td>{{info.approverTeamLeadRemarks}}</td>
+
+<td *ngIf="info.approvedByTeamLead == 'Y'"><button disabled class="btn btn-default" 
+style="font-size:10px;" (click)="editteamleadatt(info.id)" 
+(click)="openModaltaskteamlead()">Approve</button></td>
+
+<td *ngIf="info.approvedByTeamLead != 'Y'"><button class="btn btn-default" 
+style="font-size:10px;" (click)="editteamleadatt(info.id)" 
+(click)="openModaltaskteamlead()">Approve</button></td>
+
+
+<!-- <td><button class="btn btn-default" style="font-size:10px;"
+(click)="approvetaskteamlead(info.id)">Approve</button> </td> -->
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>My Team Activities</h4>
+
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+<th>Activity</th>
+<th>Employee</th>
+<th>Performing Date</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getTeamEmpActivitiesData">
+
+<td>{{info.activityDesc}}</td>
+<td>{{info.empName}}</td>
+<td>{{info.performingDate}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-lg-12">
+<!-- You can find this in the dashboard-component -->
+
+<div class="card">
+
+<div class="card-body">
+<h4 class="card-title"><span class="lstick"></span>My Team Attendance</h4>
+
+<div class="table-responsive">
+<table class="table table-hover earning-box">
+<thead>
+<tr>
+
+<th>Emp Name</th>
+<th>Att Date</th>
+<th>Check In</th>
+<th>Check Out</th>
+<th>Present</th>
+<th>Approved By </th>
+<th>Approved On </th>
+<th>Approver Email</th>
+<th>Approver Remarks</th>
+<th>Approve</th>
+
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let info of getTeamEmpAttendanceData">
+
+<td>{{info.empName}}</td>
+<td>{{info.attDate}}</td>
+<td>{{info.checkIn}}</td>
+<td>{{info.checkOut}}</td>
+<td>{{info.present}}</td>
+<td>{{info.approvedByTeamLead}}</td>
+<td>{{info.approvedByTeamLeadOn}}</td>
+<td>{{info.approverTeamLeadEmail}}</td>
+<td>{{info.approverTeamLeadRemarks}}</td>
+
+<td *ngIf="info.approvedByTeamLead == 'Y'"><button disabled class="btn btn-default" 
+style="font-size:10px;" (click)="editteamleadatt(info.id)" 
+(click)="openModalattteamlead()">Approve</button></td>
+
+<td *ngIf="info.approvedByTeamLead != 'Y'"><button class="btn btn-default" 
+style="font-size:10px;" (click)="editteamleadatt(info.id)" 
+(click)="openModalattteamlead()">Approve</button></td>
+
+
+<!-- <td><button class="btn btn-default" style="font-size:10px;"
+(click)="approveattteamlead(info.id)"
+>Approve</button> </td> -->
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+</ng-container>
+
+<div class="backdrop" [ngStyle]="{'display':displayattadmin}"></div>
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displayattadmin}" >
+<div class="modal-dialog" role="document">
+<div class="modal-content" style="width:600px;" >
+<div class="modal-header">
+
+<h4 class="modal-title">Approve Attendance Admin</h4>
+<button class="close" type="button" aria-label="Close" (click)="onCloseHandledattadmin()" >
+<span aria-hidden="true">&times;</span></button>
+</div>
+
+<form
+name="form"
+(ngSubmit)="approveattadmin()"
+#a="ngForm"
+novalidate
+>
+
+<div class="modal-body" >
+
+<input type="hidden" id="id" name="id" [(ngModel)]="form.id"  />
+
+<div class="form-group">
+
+<label>Remarks</label>
+
+<input
+type="text"
+class="form-control"
+id="remarks"
+name="remarks"
+required
+[(ngModel)]="form.remarks" />
+
+</div>
+</div>
+
+<div class="modal-footer">
+<button class="btn btn-default" type="submit"
+(click)="onCloseHandledattadmin()"  
+>Save</button>
+</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="backdrop" [ngStyle]="{'display':displaytaskadmin}"></div>
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displaytaskadmin}" >
+<div class="modal-dialog" role="document">
+<div class="modal-content" style="width:600px;" >
+<div class="modal-header">
+
+<h4 class="modal-title">Approve Task Admin</h4>
+<button class="close" type="button" aria-label="Close" (click)="onCloseHandledtaskadmin()" >
+<span aria-hidden="true">&times;</span></button>
+</div>
+
+<form
+name="form"
+(ngSubmit)="approvetaskadmin()"
+#a="ngForm"
+novalidate
+>
+
+<div class="modal-body" >
+
+<input type="hidden" id="id" name="id" [(ngModel)]="form.id"  />
+
+<div class="form-group">
+
+<label>Remarks</label>
+
+<input
+type="text"
+class="form-control"
+id="remarks"
+name="remarks"
+required
+[(ngModel)]="form.remarks" />
+
+</div>
+</div>
+
+<div class="modal-footer">
+<button class="btn btn-default" type="submit"
+(click)="onCloseHandledtaskadmin()"  
+>Save</button>
+</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="backdrop" [ngStyle]="{'display':displaytaskteamlead}"></div>
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displaytaskteamlead}" >
+<div class="modal-dialog" role="document">
+<div class="modal-content" style="width:600px;" >
+<div class="modal-header">
+
+<h4 class="modal-title">Approve Task TeamLead</h4>
+<button class="close" type="button" aria-label="Close" (click)="onCloseHandledtaskteamlead()" >
+<span aria-hidden="true">&times;</span></button>
+</div>
+
+<form
+name="form"
+(ngSubmit)="approvetaskteamlead()"
+#a="ngForm"
+novalidate
+>
+
+<div class="modal-body" >
+
+<input type="hidden" id="id" name="id" [(ngModel)]="form.id"  />
+
+<div class="form-group">
+
+<label>Remarks</label>
+
+<input
+type="text"
+class="form-control"
+id="remarks"
+name="remarks"
+required
+[(ngModel)]="form.remarks" />
+
+</div>
+</div>
+
+<div class="modal-footer">
+<button class="btn btn-default" type="submit"
+(click)="onCloseHandledtaskteamlead()"  
+>Save</button>
+</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="backdrop" [ngStyle]="{'display':displayattteamlead}"></div>
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displayattteamlead}" >
+<div class="modal-dialog" role="document">
+<div class="modal-content" style="width:600px;" >
+<div class="modal-header">
+
+<h4 class="modal-title">Approve Attendance TeamLead</h4>
+<button class="close" type="button" aria-label="Close" (click)="onCloseHandledattteamlead()" >
+<span aria-hidden="true">&times;</span></button>
+</div>
+
+<form
+name="form"
+(ngSubmit)="approveattteamlead()"
+#a="ngForm"
+novalidate
+>
+
+<div class="modal-body" >
+
+<input type="hidden" id="id" name="id" [(ngModel)]="form.id"  />
+
+<div class="form-group">
+
+<label>Remarks</label>
+
+<input
+type="text"
+class="form-control"
+id="remarks"
+name="remarks"
+required
+[(ngModel)]="form.remarks" />
+
+</div>
+</div>
+
+<div class="modal-footer">
+<button class="btn btn-default" type="submit"
+(click)="onCloseHandledattteamlead()"  
+>Save</button>
+</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+
+<!------------------------------------------------------------------------->
+<!------------------------------------------------------------------------->
+<!------------------------------------------------------------------------->
+
+
+<div class="backdrop" [ngStyle]="{'display':displayattupdatein}"></div>
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displayattupdatein}" >
+<div class="modal-dialog" role="document">
+<div class="modal-content" style="width:600px;" >
+<div class="modal-header">
+
+<h4 class="modal-title">Edit Attendance In</h4>
+<button class="close" type="button" aria-label="Close" (click)="onCloseHandled_attendance_in()" >
+<span aria-hidden="true">&times;</span></button>
+</div>
+
+<form
+name="form"
+(ngSubmit)="edit_attendance_in_submit()"
+#a="ngForm"
+novalidate
+>
+
+<div class="modal-body" >
+
+<input type="hidden" id="id" name="id" [(ngModel)]="form.id"  />
+
+<div class="form-group">
+
+<label>Time In</label>
+
+<input
+type="time"
+class="form-control"
+id="time_in"
+name="time_in"
+required
+[(ngModel)]="form.time_in" />
+
+</div>
+</div>
+
+<div class="modal-footer">
+<button class="btn btn-default" type="submit"
+(click)="onCloseHandled_attendance_in()"  
+>Save</button>
+</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+
+<div class="backdrop" [ngStyle]="{'display':displayattupdateout}"></div>
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displayattupdateout}" >
+<div class="modal-dialog" role="document">
+<div class="modal-content" style="width:600px;" >
+<div class="modal-header">
+
+<h4 class="modal-title">Edit Attendance Out</h4>
+<button class="close" type="button" aria-label="Close" (click)="onCloseHandled_attendance_out()" >
+<span aria-hidden="true">&times;</span></button>
+</div>
+
+<form
+name="form"
+(ngSubmit)="edit_attendance_out_submit()"
+#a="ngForm"
+novalidate
+>
+
+<div class="modal-body" >
+
+<input type="hidden" id="id" name="id" [(ngModel)]="form.id"  />
+
+<div class="form-group">
+
+<label>Time Out</label>
+
+<input
+type="time"
+class="form-control"
+id="time_out"
+name="time_out"
+required
+[(ngModel)]="form.time_out" />
+
+</div>
+</div>
+
+<div class="modal-footer">
+<button class="btn btn-default" type="submit"
+(click)="onCloseHandled_attendance_out()"  
+>Save</button>
+</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+
+<div class=" row">
+
+
+<div class=" col-xl-12">
+<div class=" card">
+<div class=" card-header bg-transparent">
+<div class=" row align-items-center">
+<div class=" col">
+<h4 class=" text-uppercase text-muted ls-1 mb-1">Employee Task Details</h4>
+
+<h5 class=" h3 mb-0">Task Complete and Pending Screen</h5>
+</div>
+</div>
+</div>
+
+<div class="card-body">
+<div class="chart">
+<canvas class="chart-canvas" id="chart-bars"> </canvas>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class=" row">
+
+
+  <div class=" col-xl-12">
+  <div class=" card">
+  <div class=" card-header bg-transparent">
+  <div class=" row align-items-center">
+  <div class=" col">
+  <h4 class=" text-uppercase text-muted ls-1 mb-1">Admin Customers </h4>
+  
+  <h5 class=" h3 mb-0">Total Admin Wise Customers  </h5>
+  </div>
+  </div>
+  </div>
+  
+  <div class="card-body">
+  <div class="chart">
+  <canvas class="chart-canvas" id="chart-bars2"> </canvas>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+
+</div>
